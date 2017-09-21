@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+function Student(name, kuk, mat, eng, sci){
+	this.이름 = name;
+	this.국어 = kuk;
+	this.수학 = mat;
+	this.영어 = eng;
+	this.과학 = sci;
+}
+Student.prototype.getSum = function(){
+	return this.국어 + this.수학 + this.영어 + this.과학
+};
+Student.prototype.getAverage = function(){
+	return this.getSum() / 4
+};
+Student.prototype.getString = function(){
+	return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage()
+};
+
+var student = new Student("양효찬", 100, 90, 80, 70);
+document.getElementById("demo").innerHTML = student.getString();
+</script>
+</body>
+</html>

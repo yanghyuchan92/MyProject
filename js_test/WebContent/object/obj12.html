@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+function Person(first, last, age, eye){
+	this.firstName = first;
+	this.lastname = last;
+	this.age = age;
+	this.eyeColor = eye;
+}
+
+Person.protoType.name = function() {
+	return this.firstName + " " + this.lastname
+};
+
+var myFather = new Person("J","D", 50,"blue");
+document.getElementById("demo").innerHTML="My father is" + myFather.name();
+</script>
+</body>
+</html>

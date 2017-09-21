@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/
+jquery/1.6.4/jquery.js"></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		url:"test03.jsp",
+		dataType:"text",
+		success:function(data){
+			result=eval("("+data+")");
+			$("#panel").append(
+				"<tr>"+
+				"<td>이름</td>"+
+				"<td>아이디</td>"+
+				"<td>국어</td>"+
+				"<td>영어</td>"+
+				"</tr>"+
+				"<tr>"+
+				"<td>"+result.name+"</td>"+
+				"<td>"+result.id+"</td>"+
+				"<td>"+result.kuk+"</td>"+
+				"<td>"+result.eng+"</td>"+
+				"</tr>"
+			);
+		}
+	});
+});
+</script>
+<style type="text/css">
+td{
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+<table id="panel"></table>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./httpRequest.js"></script>
+<script type="text/javascript">
+	// 서버로 요청 전송
+	function send(name) {
+		var params = "name=" + encodeURIComponent(name);
+		var newsList = document.getElementById("MyInfo");
+		newsList.innerHTML = "";
+		sendRequest("myinfo.jsp", params, response, "post");
+	}
+
+	function response() {
+		if (httpRequest.readyState == 4) { // 전송을 전부 받았다면
+			if (httpRequest.status == 200) { // 요청한 서버 파일이 실행 됐다면
+
+				var MyInfo = document.getElementById("MyInfo");
+
+				MyInfo.innerHTML = httpRequest.responseText;
+			} else {
+				alert(httpRequest.status);
+			}
+
+		}
+	}
+</script>
+<style type="text/css">
+.style9 {
+	font-size: 16
+}
+</style>
+</head>
+<body>
+	<div id="debugConsole"
+		style="border: 1px solid #000000; color: #00ff00; background: #000000">
+	</div>
+
+	<table width="790" border="1" align="center" cellpadding="5">
+		<tr>
+			<td height="34" align="center"><span class="style9"> My
+					info </span></td>
+		</tr>
+		<tr>
+			<td height="61">
+				<!-- 결과 출력 태그 -->
+				<div id="MyInfo"></div> <br>
+
+				<form name="news">
+					정보확인: <br>
+					<br> 회원 이름:&nbsp; <input type="text" name="name" value="">
+
+					<input type="button" value="정보확인"
+						onclick="send(this.form.name.value)" />
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/
+jquery/1.6.4/jquery.js"></script>  -->
+<script type="text/javascript" src="./jquery.js"></script> 
+<script type="text/javascript">
+$(function(){
+	$.getJSON(
+		"get.jsp",
+		{
+			"name":"가길동",
+			"kuk":90,
+			"eng":100
+		},
+		function(result, textStatus){
+			alert(textStatus);
+			$("#panel").append(
+				"성명 : " + result.name + "<br>" +		
+				"국어 : " + result.kuk + "<br>" +		
+				"영어 : " + result.eng + "<br>" +		
+				"총점 : " + result.tot + "<br>" +		
+				"평균 : " + result.avg	
+			);
+		}
+	);
+});
+</script>
+<style type="text/css">
+	td{
+		border: 1px solid gray;
+	}
+</style>
+</head>
+<body>
+<div id="panel"></div>
+</body>
+</html>

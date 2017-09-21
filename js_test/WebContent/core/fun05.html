@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style>
+</head>
+<body>
+<h2> 이스코프와 유니코드</h2>
+
+<script type="text/javascript">
+var temp1, temp2;
+
+document.write("원본 : " + "123-abc-오산");
+
+temp1 = escape("123-abc-오산");
+
+temp2 = unescape(temp1);
+
+document.write("escape:" + temp1 + "<br><br>");
+document.write("unescape:" + temp2);
+</script>
+</body>
+</html>

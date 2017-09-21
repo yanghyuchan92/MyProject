@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>The pop method returnes the removed item.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<p id="a"></p>
+<script>
+var fruits = ["Banana","orange","Apple","Mango"];
+document.getElementById("a").innerHTML=fruits;
+
+function myFunction(){
+	document.getElementById("demo").innerHTML=fruits.pop();
+}
+</script>
+</body>
+</html>

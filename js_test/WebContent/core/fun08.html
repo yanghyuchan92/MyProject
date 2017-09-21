@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style> 
+<script type="text/javascript" src="./utility.js"></script>
+</head>
+<body>
+<h1>eval</h1>
+<h2>
+<script type="text/javascript">
+	var temp1, temp2;
+	
+	temp1 = prompt("수식을 입력하세요","(10 + 20)/2");
+	
+	temp2 = "계산 결과는" + eval(temp1) + "입니다.";
+	pl('temp2:' + temp2);
+</script>
+</h2>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/
+jquery/1.6.4/jquery.js"></script>  -->
+<script type="text/javascript" src="./jquery.js"></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+	$.getJSON(
+            "test05.jsp",
+            response
+	);
+});
+
+function response(result,textStatus){
+	$("#panel").append(
+		"<tr>"+
+		"<td colspan='4'>test05.jsp 요청 처리에 성공 했습니다."+
+		"</td>"+
+		"</tr>"+
+		"<tr>"+
+		"<td>이름</td>"+
+		"<td>아이디</td>"+
+		"<td>국어</td>"+
+		"<td>영어</td>"+
+		"</tr>"
+	);
+	
+	var data = result.data;
+	var size = data.length;
+	
+	var i = 0;
+	
+	for(i=0;i<size;i++){
+		$("#panel").append(
+			"<tr>"+
+			"<td>"+data[i].name+"</td>"+
+			"<td>"+data[i].id+"</td>"+
+			"<td>"+data[i].kuk+"</td>"+
+			"<td>"+data[i].eng+"</td>"+
+			"</tr>"
+		);
+	}
+}
+</script>
+</head>
+<body>
+<table id="panel"></table>
+</body>
+</html>

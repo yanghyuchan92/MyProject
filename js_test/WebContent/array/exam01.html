@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script type="text/javascript">
+function check(){
+	var f=document.frm;
+	var str=f.data.value;
+	var warning=["가을","단풍"];
+	
+	for(var i = 0; i < warning.length; i++){
+		var sw = true;
+		
+		while(sw){
+			var index = str.indexOf(warning[i]);
+			if(index >= 0){
+				str = str.replace(warning[i],"XX");
+			}else{
+				se = false;
+			}
+		}
+	}
+	f.panel.value=str;
+}
+</script>
+</head>
+<body>
+<form name='frm'>
+	<textarea name="data" rows="10" cols="70">
+		가을에는 단풍 여행을 내장산으로 가야한다고 한다.
+      내장산은 단풍이 웅장하고 걷기편해 산책하기 좋다.
+      단풍 나무와 함께 감나무에                                                       감이 주렁주렁 열려 가을을 느끼기에 아주 좋다.
+      하지만 단풍과 기암 괴석의 경치를 감사하고 싶으면 가을 설악의 단풍을
+      추천한다. 하지만 교통체증이 너무 심해 새벽 2시 출발을 각오해야 한다.  
+	</textarea>
+	<br><br>
+	<input type='button' value='변환' onclick="check();">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

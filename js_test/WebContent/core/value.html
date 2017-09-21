@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style> 
+<script type="text/javascript">
+  var oldVal = ''; // 전역 변수
+  var newVal = '';
+  
+  // JSP의 내부 객체처럼 자동으로 자바 스크립트 객체 document가 생성됨.
+  function ok(f){ // f == this.form == document.frm 모두 같은 태그를 나타내는 객체 
+ 
+    if(oldVal == "" && newVal == "" ){ // JAVA: equals()로 비교
+     // document.frm.keyword.value == f.keyword.value;
+      newVal = f.keyword.value; // input 태그에 입력된 값을 newVal 변수에 저장
+      
+    } else if(f.keyword.value == "") {
+      return;                   // 중지
+    
+    } else {
+      oldVal = newVal;          // 현재 값을 다른 변수로 이동
+      newVal = f.keyword.value; // 새로운 값을 변수에 할당
+    
+    }        
+    
+    // 자바 스크립트는 태그를 검색, 생성, 삭제, 변경이 가능합니다.
+    // 태그의 id가 'panel'인 HTML 태그를 찾아서 변수에 할당
+    // 태그의 id는 하나의 문서에서 고유해야 합니다.
+    var divTag = document.getElementById('panel');
+    
+    // 출력할 문자열 조합
+    var str = 'oldVal: ' + oldVal + ' / newVal: ' + newVal;
+    
+    // DIV태그에 값을 할당하는 속성: innerHTML
+    divTag.innerHTML = divTag.innerHTML + '<br>' + str;         
+  }
+</script>
+</head>
+<body>
+ 
+<form name='frm' action='' method='post'>
+  <input type='text' name='keyword' value='' style="width:90%" />
+    
+  <!-- 
+  
+       HTML   → onclick → javascript
+       
+       onclick  : 마우스 이벤트, HTML과 Javascript의 연결 고리 역활 
+       this 객체: <input type='button' 태그 자신 
+       this.form: 현재 태그가 속한 <form name='frm' 폼태그
+       ok(this.form): ok 함수로 this.form 객체 전달, Call By Reference -->
+  <input type='button' name='btnOK' value='확인' onclick="javascript: ok(this.form);"></input>
+</form>
+ 
+<div id='panel' class="abc" style='font-size: 24px'></div>
+</body>
+</html>

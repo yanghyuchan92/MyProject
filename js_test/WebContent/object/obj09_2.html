@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+
+	var myFather = {
+			fname : 'john',
+			lname : 'doe',
+			age : 50,
+			eyeColor : 'blue'
+	};
+	
+	var myMother = {
+			fname : '셀리',
+			lname : '아임',
+			age : 48,
+			eyeColor : "green"
+	};
+	
+	document.getElementById("demo").innerHTML=
+		"My father is " + myFather.eyeColor + " .My mother is " + myMother.eyeColor;
+</script>
+<!-- var person = {
+		name : '홍길동',
+		eat : function(food){
+			alert(this.name + '이' +food + '를 먹습니다.');
+		}
+};
+
+person.eat('밥'); -->
+
+<!-- function person(first, last, age, eye){
+	this.firstName = first;
+	this.lastName = last;
+	this.age = age;
+	this.eyeColor = eye;
+}
+
+var myFather = new person("John","Doe",50,"blue");
+var myMother = new person("Sally","Rally",48,"green"); -->
+
+</body>
+</html>

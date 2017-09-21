@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var product = {
+		name: '마이크로 소프트 비쥬얼 스튜디오 2012 울티메이트',
+		price: '완전비싸',
+		language : "한국어",
+		supportOS:'win 32/64',
+		subscription:true
+	};
+	
+	var output ='';
+	for(var key in product){
+		output = output + '●' + key + ':' + product[key] + '\n';
+	}
+	alert(output);
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var student = {
+		이름 : '양효찬',
+		국어 : 100, 수학 : 90,
+		영어 : 100, 과학 : 98
+};
+
+var output='';
+with(student){
+	output = output + '이름 : ' + 이름 + '\n';
+	output = output + '수학 : ' + 수학 + '\n';
+	output = output + '영어 : ' + 영어 + '\n';
+	output = output + '과학 : ' + 과학 + '\n';
+	output = output + '국어 : ' + 국어 + '\n';
+	output = output + '총점 : ' + (국어 + 수학 + 영어 + 과학);
+}
+alert(output);
+</script>
+</head>
+<body>
+
+</body>
+</html>

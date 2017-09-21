@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./httpRequest.js"></script>
+<script type="text/javascript">
+	// 서버로 요청 전송
+	function send() {
+		var params = "name=";
+		var name = document.getElementById("name").value;
+		params = params + name;
+		sendRequest("myinfo.xml", params, response, "post");
+	}
+
+	function response() {
+		if (httpRequest.readyState == 4) { // 전송을 전부 받았다면
+			if (httpRequest.status == 200) { // 요청한 서버 파일이 실행 됐다면
+
+				var infoList = document.getElementById("MyInfo");
+
+				var myinfo = httpRequest.responseXML;
+				
+				var name = myinfo.getElementsByTagName("name").item(0).firstChild.nodeValue;
+				var phone = myinfo.getElementsByTagName("phone").item(0).firstChild.nodeValue;
+				var address = myinfo.getElementsByTagName("address").item(0).firstChild.nodeValue;
+				
+				var str = "이름 : " + name + "<br>";
+					str = str + "전화번호 : " + phone + "<br>";
+					str = str + "주소 : " + address + "<br>";
+					
+					infoList.innerHTML = str
+				
+			} else {
+				alert(httpRequest.status);
+			}
+
+		}
+	}
+</script>
+<style type="text/css">
+.style9 {
+	font-size: 16
+}
+</style>
+</head>
+<body>
+이름을 입력하세요<br>
+<input type="text" id="name">
+<button type="button" onclick="send()">입력</button>
+<div id="MyInfo"></div>
+</body>
+</html>

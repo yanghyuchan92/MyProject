@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>The shift method returns the element that was shifted out</p>
+
+<button onclick="myFunction()">도전</button>
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana","Orange","Apple","Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+function myFunction(){
+	document.getElementById("demo").innerHTML = fruits.shift();
+}
+</script>
+</body>
+</html>
